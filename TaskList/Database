@@ -1,0 +1,25 @@
+Database
+
+Tasks
+	TaskID
+	User
+	Name
+	Description
+	Datetime
+
+SubTasks
+	TaskID
+	Name
+	Description
+	Datetime
+
+Collaboration
+	CollaborationID
+	UserOwner
+	Taksid
+	UserListID
+
+UserList
+	UserListID
+	CollaberationID
+	UserID
