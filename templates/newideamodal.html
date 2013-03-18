@@ -1,0 +1,22 @@
+<div class="modal hide" id="ideaModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">x</button>
+    <h3>Login to MyWebsite.com</h3>
+  </div>
+  <div class="modal-body">
+    <form method="post" action='/' name="newidea/">{% csrf_token %}
+      <div class="span4 well">
+        <form accept-charset="UTF-8" action="" method="POST">
+            <textarea class="span4" id="new_idea" name="new_idea"
+            placeholder="Type in your idea" rows="5"></textarea>
+            
+            {{newIdea.as_p}}
+            <button class="btn btn-info" type="submit">Post New Idea</button>
+        </form>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    New To Ideas?
+  </div>
+</div>

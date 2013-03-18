@@ -9,7 +9,7 @@ class Tasks(models.Model):
 	user = models.ForeignKey(User)
 	name = models.CharField(max_length=200)
 	description = models.CharField(max_length=2000)
-	task_date = models.DateTimeField('date published')
+	task_date = models.DateTimeField(auto_now_add = True)
 
 
 class SubTasks(models.Model):
@@ -25,3 +25,17 @@ class Collaboration(models.Model):
 class UserList(models.Model):
 	Collaboration = models.ForeignKey(Collaboration)
 	user = models.ForeignKey(User)
+
+class CustomUserManager(models.Manager):
+    def create_user(self, username, email):
+        return self.model._default_manager.create(username=username)
+
+
+class CustomUser(models.Model):
+    username = models.CharField(max_length=128)
+    last_login = models.DateTimeField(blank=True, null=True)
+
+    objects = CustomUserManager()
+
+    def is_authenticated(self):
+        return True
